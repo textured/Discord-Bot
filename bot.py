@@ -57,7 +57,7 @@ async def commands():
 
 # Dota 2 related commands
 
-@botRaymond.command(pass_context=True)
+@botTextured.command(pass_context=True)
 async def recentgame(ctx):
     """
     Retrives link to latest dota game dependant on caller via dotabuff
@@ -68,9 +68,9 @@ async def recentgame(ctx):
     dota_id = usersDotaID[user_id]
     hist = dotaAPI.get_match_history(account_id=dota_id)
     matchid = str(hist['matches'][0]['match_id'])
-    await botRaymond.say(content="{}".format(url + matchid))
+    await botTextured.say(content="{}".format(url + matchid))
 
-@botRaymond.command(pass_context=True)
+@botTextured.command(pass_context=True)
 async def dotabuff(ctx, arg = None):
     """
     Retrive dotabuff account (Optional argument to perform search)
@@ -81,10 +81,10 @@ async def dotabuff(ctx, arg = None):
         url = 'https://www.dotabuff.com/players/'
         user_id = str(ctx.message.author)
         player_id = str(usersDotaID[user_id])
-        await botRaymond.say(content="{}".format(url + player_id))
+        await botTextured.say(content="{}".format(url + player_id))
     elif arg != None:
         url = 'https://www.dotabuff.com/search?utf8=%E2%9C%93&q={}&commit=Search'.format(arg)
-        await botRaymond.say(content="{}".format(url))
+        await botTextured.say(content="{}".format(url))
 
 # run bot with token acquired from Discord
 botTextured.run("TOKEN_HERE")
