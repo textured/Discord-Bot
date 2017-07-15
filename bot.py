@@ -58,9 +58,10 @@ async def commands():
 # Dota 2 related commands
 
 @botTextured.command(pass_context=True)
-async def recentgame(ctx):
+async def recentgame(ctx, arg=None):
     """
     Retrives link to latest dota game dependant on caller via dotabuff
+    optional parameter [stats] which displays quick info on player performance
 
     """
     url = 'https://www.dotabuff.com/matches/'
@@ -68,7 +69,20 @@ async def recentgame(ctx):
     dota_id = usersDotaID[user_id]
     hist = dotaAPI.get_match_history(account_id=dota_id)
     matchid = str(hist['matches'][0]['match_id'])
-    await botTextured.say(content="{}".format(url + matchid))
+
+    if arg == None:
+        await botTextured.say(content="{}".format(url + matchid))
+
+    if arg == 'stats':
+        match_info = dotaAPI.get_match_details(match_id = int(matchid))
+        for player in match_info['players']:
+            if player['account_id'] == dota_id:
+                await botTextured.say(content='```Hero:        {}\nK/D/A:       {}/{}/{}\nLast hits:   {}\nGPM:         {}\nXPM:         {}```'.format(
+                    player['hero_name'], player['kills'], 
+                    player['deaths'], player['assists'], 
+                    player['last_hits'], player['gold_per_min'], player['xp_per_min']))
+
+
 
 @botTextured.command(pass_context=True)
 async def dotabuff(ctx, arg = None):
