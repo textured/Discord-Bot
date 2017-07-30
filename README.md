@@ -11,12 +11,13 @@ First create your bot account to use with your website by following the link bel
 1. Create a new application
 2. Give it a *brand new name*, description and icon!
 3. Click on *create Bot user* and confirm your action
-4. Find your token under the APP BOT USER and save it for use with the bot
-5. Edit the bot.py file in the app folder and place your token in the string on the line **botTexured.run('TOKEN HERE')**
-6. Get your steam API key from [here](https://steamcommunity.com/dev/apikey)
-7. Place your Steam web api in the line and replace the string dotaAPI = **dota2api.Initialise("STEAM_WEBAPI_KEY")**
-8  Edit the dictionaries games and usersDotaID for usage of the dota commands and game command
-9. Lastly, run the python file in the app folder through the command *python3 bot.py* 
+4. Find your token under the APP BOT USER and client/application ID and save it for use with the bot
+5. Authorize your bot with your server by pasting your client id in this link by replacing CLIENT_ID_GOES_HERE https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_GOES_HERE&scope=bot&permissions=0
+6. Edit the bot.py file in the app folder and place your token in the string on the line **botTexured.run('TOKEN HERE')**
+7. Get your steam API key from [here](https://steamcommunity.com/dev/apikey)
+8. Place your Steam web api in the line and replace the string dotaAPI = **dota2api.Initialise("STEAM_WEBAPI_KEY")**
+9.  Edit the dictionaries games and usersDotaID for usage of the dota commands and game command
+10. Lastly, run the python file in the app folder through the command *python3 bot.py* 
 
 
 # Commands
