@@ -19,7 +19,6 @@ First create your bot account to use with your website by following the link bel
 9. Lastly, run the python file in the app folder through the command *python3 bot.py* 
 
 
-___
 # Commands
 _brackets reflect optional paramters to the command_
 
