@@ -42,7 +42,7 @@ class Dota2():
                 match_info = self.dotaAPI.get_match_details(match_id = int(matchid))
                 for player in match_info['players']:
                     if player['account_id'] == dota_id:
-                        await self.bot.say(content='```''
+                        await self.bot.say(content='```'
                                            'Hero:        {}\n'
                                            'K/D/A:       {}/{}/{}\n'
                                            'Last hits:   {}\n'
@@ -71,7 +71,7 @@ class Dota2():
             await self.bot.say(content="{}".format(url))
 
     @commands.command(pass_context=True)
-    async def mymmr(ctx):
+    async def mymmr(self, ctx):
         """
         Displays information about dota profile such as solo, party and estimated matchmaking rating (mmr)
         """
